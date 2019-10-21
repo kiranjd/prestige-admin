@@ -25,7 +25,7 @@ class App extends Component {
             <li>Home</li>
             <li className="active">Banners</li>
             <li>Shops</li>
-            <li>Offers</li>
+            <li>Offers are rare</li>
             <li>Events</li>
             <li>Help</li>
           </ul>
