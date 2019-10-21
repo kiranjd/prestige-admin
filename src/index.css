@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+body {
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+}
+.app {
+  display: grid;
+  grid-template-rows: 60px auto;
+  grid-template-columns: 250px auto;
+  grid-template-areas:
+    "sidebar navbar"
+    "sidebar content";
+}
+.navbar {
+  grid-area: navbar;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  background: #203672;
+}
+
+.content {
+  grid-area: content;
+  height: calc(100vh - 60px);
+  background: #e3e3e3;
+}
+.home {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto;
+  grid-template-areas: "home-top" "home-body" "home-bottom";
+}
+.home-content-top {
+  grid-area: home-top;
+  padding: 20px;
+}
+.home-content-top > img {
+  width: 100%;
+  border-radius: 5px;
+}
+.home-content-body {
+  grid-gap: 15px;
+  padding: 0 15px;
+  grid-area: home-body;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.home-content-bottom {
+  display: grid;
+  grid-gap: 15px;
+  padding: 15px;
+  padding-bottom: 0;
+  grid-area: home-bottom;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.card {
+  min-height: 125px;
+  width: 100%;
+  background: white;
+  border-radius: 5px;
+}
+.card > img {
+  width: 100%;
+  border-radius: 5px;
+}
+.sidebar > ul {
+  padding: 0;
+  margin: 0;
+}
+.sidebar > ul > li:first-child {
+  padding: 0;
+  height: 60px;
+  border: none;
+}
+.sidebar > ul > li {
+  padding: 10px;
+  color: white;
+  border-left: 2px solid transparent;
+}
+.sidebar > ul > li.active {
+  border-left: 2.5px solid white;
+}
