@@ -1,15 +1,12 @@
 import React, { Component } from "react";
 import { Form } from "react-bootstrap";
-class Shops extends Component {
+class Events extends Component {
   state = {};
   render() {
     return (
-      <div className="shops">
+      <div className="events">
         <div>
-          <div className="c-inputs">
-            <label>Shop name</label>
-            <Form.Control />
-          </div>
+          <h3>Events Information</h3>
           <div className="c-inputs">
             <label>Floor</label>
             <Form.Control />
@@ -22,14 +19,7 @@ class Shops extends Component {
             <label>Description</label>
             <textarea className="form-control" />
           </div>
-          <div className="c-inputs">
-            <label>Path</label>
-            <input type="file" />
-          </div>
-          <div className="c-inputs">
-            <label>Floorplan</label>
-            <input type="file" />
-          </div>
+          <button className="submit">Submit</button>
         </div>
         <div className="shop-logo">
           <div>
@@ -41,4 +31,4 @@ class Shops extends Component {
   }
 }
 
-export default Shops;
+export default Events;
