@@ -12,9 +12,6 @@ body {
     "sidebar navbar"
     "sidebar content";
 }
-.navbar {
-  grid-area: navbar;
-}
 
 .sidebar {
   grid-area: sidebar;
@@ -81,6 +78,11 @@ body {
 .sidebar > ul > li.active {
   border-left: 2.5px solid white;
 }
+
+h3 {
+  text-transform: capitalize;
+  color: #2a2a72;
+  padding: 15px;
 .shops {
   display: grid;
   grid-template-columns: 2fr 1fr;
