@@ -1,18 +1,18 @@
 import React, { Component } from "react";
 import { Form } from "react-bootstrap";
-import Input from "../components/input";
-class Shops extends Component {
+import Input from "./components/input";
+class Events extends Component {
   state = {};
   render() {
     return (
-      <div className="shops">
+      <div className="events">
         <div>
-          <Input type="input" label="Shop name" />
+          <h3>Events Information</h3>
           <Input type="input" label="Floor" />
           <Input type="input" label="Category" />
           <Input label="Description" />
-          <Input type="file" label="Path" />
-          <Input type="file" label="Floorplan" />
+
+          <button className="submit">Submit</button>
         </div>
         <div className="shop-logo">
           <div>
@@ -24,4 +24,4 @@ class Shops extends Component {
   }
 }
 
-export default Shops;
+export default Events;
