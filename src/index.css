@@ -83,6 +83,7 @@ h3 {
   text-transform: capitalize;
   color: #2a2a72;
   padding: 15px;
+}
 .shops {
   display: grid;
   grid-template-columns: 2fr 1fr;
