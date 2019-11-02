@@ -2,11 +2,11 @@ import React from "react";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import FormCardContainer from "../components/FormCardContainer";
-import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
+import { createStyles, makeStyles } from "@material-ui/core/styles";
 function Help() {
   const classes = useStyles();
   return (
-    <FormCardContainer>
+    <FormCardContainer title="Help">
       <h3 style={{ marginBottom: "-20px" }}>Information Desk</h3>
       <TextField
         id="standard-basic"

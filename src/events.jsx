@@ -12,7 +12,7 @@ function Events() {
   const [isOneDayEvent, setIsOneDayEvent] = useState(false);
 
   return (
-    <FormCardContainer>
+    <FormCardContainer title="Events">
       <TextField
         id="standard-basic"
         className={classes.textField}

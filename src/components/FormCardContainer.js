@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => {
     },
     card: {
       maxWidth: 300,
-      margin: "5%",
+      margin: "2%",
       padding: "15px",
       transition: "0.3s",
 
@@ -35,9 +35,8 @@ const useStyles = makeStyles(theme => {
       }
     },
     heading: {
-      marginLeft: "2%",
-      marginTop: "3%",
-      marginBottom: "2%",
+      marginLeft: "3%",
+
       color: "#F44336"
     }
   };

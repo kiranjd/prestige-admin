@@ -11,13 +11,14 @@ import MenuItem from "@material-ui/core/MenuItem";
 
 function Shops() {
   const classes = useStyles();
-  const [age, setAge] = React.useState("");
+  const [floor, setFloor] = React.useState("");
+  const [category, setCategory] = React.useState("");
   const handleChange = event => {
-    setAge(event.target.value);
+    setFloor(event.target.value);
   };
 
   return (
-    <FormCardContainer>
+    <FormCardContainer title="Shops">
       <TextField
         id="standard-basic"
         className={classes.textField}
@@ -37,7 +38,7 @@ function Shops() {
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={age}
+          value={floor}
           onChange={handleChange}
         >
           <MenuItem value={0}>Ground</MenuItem>
@@ -53,7 +54,7 @@ function Shops() {
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={age}
+          value={category}
           onChange={handleChange}
         >
           <MenuItem value={10}>Food</MenuItem>
@@ -66,6 +67,17 @@ function Shops() {
       <br />
       <InputLabel className={classes.input}>
         Upload Shop Logo
+        <Input
+          capture="camcorder"
+          className={classes.input}
+          id="icon-button-video"
+          type="file"
+        />
+      </InputLabel>
+
+      <br />
+      <InputLabel className={classes.input}>
+        Shop Direction
         <Input
           capture="camcorder"
           className={classes.input}
