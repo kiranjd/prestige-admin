@@ -10,8 +10,8 @@ export default function LoginPage() {
   const classes = useStyles();
 
   return (
-    <div className="text-center">
-      <Card className={classes.card}>
+    <Card className={classes.card}>
+      <div className={classes.container}>
         <img src="/logo.jpg" width="80" height="80" />
         <br />
 
@@ -32,20 +32,26 @@ export default function LoginPage() {
           type="Password"
           className={classes.textField}
         />
-        <br />
+
         <br />
         <Button variant="contained" color="primary" className={classes.button}>
           Login
         </Button>
-        <br />
+
         <br />
         <Link to="/">forgot password</Link>
-      </Card>
-    </div>
+      </div>
+    </Card>
   );
 }
 
 const useStyles = makeStyles(theme => ({
+  container: {
+    display: "flex",
+    flexWrap: "wrap",
+    flexDirection: "column",
+    alignItems: "center"
+  },
   card: {
     maxWidth: 350,
     margin: "auto",

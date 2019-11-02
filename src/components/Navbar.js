@@ -10,8 +10,8 @@ import Fab from "@material-ui/core/Fab";
 export default function Navbar() {
   const classes = useStyles();
   return (
-    <NavWrapper className="navbar navbar-expand-sm navbar-dark px-sm-5">
-      <div className="ml-auto" style={{ marginRight: "-30px" }}>
+    <NavWrapper>
+      <div className="navButtons">
         <Link to="/">
           <Fab color="secondary" aria-label="edit" className={classes.fab}>
             <Icon size={20} icon={person} style={{ color: "#ffffff" }} />
@@ -29,8 +29,10 @@ export default function Navbar() {
 
 const NavWrapper = styled.nav`
   background: #132743;
-  grid-area: navbar;
+  height: 60px;
+  border-radius: 0;
 `;
+
 const useStyles = makeStyles(theme => ({
   fab: {
     margin: theme.spacing(0.5),
