@@ -13,6 +13,7 @@ function Events() {
   const [isOneDayEvent, setIsOneDayEvent] = useState(false);
 
   return (
+
     <div style={{ padding: 20 }}>
       <Grid container>
         <Grid item xs={6} >

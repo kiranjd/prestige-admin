@@ -27,6 +27,8 @@ function Offers() {
   //   setShop(event.target.value);
   // };
   return (
+
+
     <div style={{ padding: 20 }}>
       <Grid container>
         <Grid item xs={6} >
@@ -106,8 +108,7 @@ const useStyles = makeStyles(theme =>
     textField: {
       marginLeft: theme.spacing(1),
       marginRight: theme.spacing(1),
-      width: 250,
-      fontSize: 5
+      width: 250
     }
   })
 );

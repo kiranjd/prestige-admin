@@ -14,12 +14,14 @@ import MenuItem from "@material-ui/core/MenuItem";
 
 function Shops() {
   const classes = useStyles();
-  const [age, setAge] = React.useState("");
+  const [floor, setFloor] = React.useState("");
+  const [category, setCategory] = React.useState("");
   const handleChange = event => {
-    setAge(event.target.value);
+    setFloor(event.target.value);
   };
 
   return (
+
     <div style={{ padding: 20 }}>
       <Grid container>
         <Grid item xs={6} >
@@ -93,6 +95,7 @@ function Shops() {
     //       type="file"
     //     />
     //   </InputLabel>
+
 
     //   <br />
     //   <Button variant="contained" color="primary" className={classes.button}>
