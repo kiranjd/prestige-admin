@@ -7,7 +7,9 @@ export default ({ title, children }) => {
   return (
     <>
       <h2 className={classes.heading}>{title}</h2>
-      <Card className={classes.card}>{children}</Card>
+      <Card className={classes.card}>
+        <div className={classes.container}>{children}</div>
+      </Card>
     </>
   );
 };
@@ -15,15 +17,21 @@ export default ({ title, children }) => {
 const useStyles = makeStyles(theme => {
   console.log("theme", theme);
   return {
+    container: {
+      display: "flex",
+      flexWrap: "wrap",
+      flexDirection: "column",
+      alignItems: "center"
+    },
     card: {
-      maxWidth: 350,
-      margin: "auto",
+      maxWidth: 300,
+      margin: "5%",
       padding: "15px",
       transition: "0.3s",
-      marginLeft: "2%",
-      boxShadow: "0 8px 40px -12px rgba(0,0,0,0.3)",
+
+      boxShadow: "0 8px 40px -12px rgba(0,0,255,0.3)",
       "&:hover": {
-        boxShadow: "0 16px 70px -12.125px rgba(0,0,0,0.3)"
+        boxShadow: "0 16px 70px -12.125px rgba(128,0,128,0.3)"
       }
     },
     heading: {

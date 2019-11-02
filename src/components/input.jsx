@@ -5,7 +5,7 @@ class Input extends Component {
   state = {};
   render() {
     return (
-      <div className="c-inputs">
+      <div className="c-inputs col-md-12">
         <label>{this.props.label}</label>
         {this.props.type === "input" ? (
           <Form.Control />
