@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import Button from "@material-ui/core/Button";
 import Add from "@material-ui/icons/Add";
+
+import { Grid, Typography } from "@material-ui/core";
+
 import {
   Input,
   Grid,
@@ -14,6 +17,7 @@ import {
   Checkbox
 } from "@material-ui/core";
 
+
 import TextField from "@material-ui/core/TextField";
 import FormCardContainer from "../components/FormCardContainer";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
@@ -21,7 +25,7 @@ import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
-
+import Icon from "@material-ui/core/Icon";
 function Shops() {
   const classes = useStyles();
   const [isOneDayEvent, setIsOneDayEvent] = useState(false);
@@ -45,6 +49,7 @@ function Shops() {
             color="primary"
             className={classes.button}
             startIcon={<Add />}
+
             onClick={handleClickOpen}
 
           >
@@ -103,6 +108,13 @@ function Shops() {
         </Select>
       </FormControl>
 
+
+    //   <br />
+    //   <Button variant="contained" color="primary" className={classes.button}>
+    //     Login
+    //   </Button>
+    // </FormCardContainer>
+
       <br />
       <InputLabel className={classes.input}>
         Upload Shop Logo
@@ -130,6 +142,7 @@ function Shops() {
       </Dialog>
     </div>
     
+
   );
 }
 
