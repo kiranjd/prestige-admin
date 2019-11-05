@@ -46,7 +46,6 @@ function Shops() {
             className={classes.button}
             startIcon={<Add />}
             onClick={handleClickOpen}
-
           >
             Add Shops
           </Button>
@@ -58,64 +57,64 @@ function Shops() {
         aria-labelledby="form-dialog-title"
       >
         <DialogContent>
-       <TextField
-        id="standard-basic"
-        className={classes.textField}
-        label="Shop Name"
-        margin="normal"
-      />
-      <TextField
-        id="standard-textarea"
-        label="Description"
-        multiline
-        margin="normal"
-        className={classes.textField}
-      />
-      <br />
-      <FormControl className={classes.formControl}>
-        <InputLabel id="demo-simple-select-label">Floor</InputLabel>
-        <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          // value={age}
-          // onChange={handleChange}
-        >
-          <MenuItem value={0}>Ground</MenuItem>
-          <MenuItem value={1}>First</MenuItem>
-          <MenuItem value={2}>Second</MenuItem>
-          <MenuItem value={3}>Third</MenuItem>
-          <MenuItem value={4}>Fourth</MenuItem>
-        </Select>
-      </FormControl>
-      <br />
-      <FormControl className={classes.formControl}>
-        <InputLabel id="demo-simple-select-label">Category</InputLabel>
-        <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          // value={age}
-          // onChange={handleChange}
-        >
-          <MenuItem value={10}>Food</MenuItem>
-          <MenuItem value={20}>Entertainment </MenuItem>
-          <MenuItem value={30}>Electronics</MenuItem>
-          <MenuItem value={40}>Games</MenuItem>
-        </Select>
-      </FormControl>
+          <TextField
+            id="standard-basic"
+            className={classes.textField}
+            label="Shop Name"
+            margin="normal"
+          />
+          <TextField
+            id="standard-textarea"
+            label="Description"
+            multiline
+            margin="normal"
+            className={classes.textField}
+          />
+          <br />
+          <FormControl className={classes.formControl}>
+            <InputLabel id="demo-simple-select-label">Floor</InputLabel>
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              // value={age}
+              // onChange={handleChange}
+            >
+              <MenuItem value={0}>Ground</MenuItem>
+              <MenuItem value={1}>First</MenuItem>
+              <MenuItem value={2}>Second</MenuItem>
+              <MenuItem value={3}>Third</MenuItem>
+              <MenuItem value={4}>Fourth</MenuItem>
+            </Select>
+          </FormControl>
+          <br />
+          <FormControl className={classes.formControl}>
+            <InputLabel id="demo-simple-select-label">Category</InputLabel>
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              // value={age}
+              // onChange={handleChange}
+            >
+              <MenuItem value={10}>Food</MenuItem>
+              <MenuItem value={20}>Entertainment </MenuItem>
+              <MenuItem value={30}>Electronics</MenuItem>
+              <MenuItem value={40}>Games</MenuItem>
+            </Select>
+          </FormControl>
 
-      <br />
-      <InputLabel className={classes.input}>
-        Upload Shop Logo
-        <Input
-          capture="camcorder"
-          className={classes.input}
-          id="icon-button-video"
-          type="file"
-        />
-      </InputLabel>
+          <br />
+          <InputLabel className={classes.input}>
+            Upload Shop Logo
+            <Input
+              capture="camcorder"
+              className={classes.input}
+              id="icon-button-video"
+              type="file"
+            />
+          </InputLabel>
 
-      <br />
-      {/* <Button variant="contained" color="primary" className={classes.button}>
+          <br />
+          {/* <Button variant="contained" color="primary" className={classes.button}>
         Login
       </Button> */}
         </DialogContent>
@@ -129,7 +128,6 @@ function Shops() {
         </DialogActions>
       </Dialog>
     </div>
-    
   );
 }
 
