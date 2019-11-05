@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
-import Add from '@material-ui/icons/Add';
-import {  Grid, Typography } from "@material-ui/core";
+import Add from "@material-ui/icons/Add";
+import { Grid, Typography } from "@material-ui/core";
 
 import TextField from "@material-ui/core/TextField";
 import FormCardContainer from "../components/FormCardContainer";
@@ -11,7 +11,7 @@ import Input from "@material-ui/core/Input";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
-
+import Icon from "@material-ui/core/Icon";
 function Shops() {
   const classes = useStyles();
   const [floor, setFloor] = React.useState("");
@@ -21,21 +21,20 @@ function Shops() {
   };
 
   return (
-
     <div style={{ padding: 20 }}>
       <Grid container>
-        <Grid item xs={6} >
+        <Grid item xs={6}>
           <Typography variant="h4">Shops</Typography>
         </Grid>
-        <Grid item xs={6} style={{textAlign:"right"}}> 
-        <Button
-        variant="contained"
-        color="primary"
-        className={classes.button}
-        startIcon={<Add />}
-      >
-        Add Shops
-      </Button>
+        <Grid item xs={6} style={{ textAlign: "right" }}>
+          <Button
+            variant="contained"
+            color="primary"
+            className={classes.button}
+            startIcon={<Add />}
+          >
+            Add Shops
+          </Button>
         </Grid>
       </Grid>
     </div>
@@ -95,7 +94,6 @@ function Shops() {
     //       type="file"
     //     />
     //   </InputLabel>
-
 
     //   <br />
     //   <Button variant="contained" color="primary" className={classes.button}>
