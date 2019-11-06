@@ -24,7 +24,163 @@ import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
-import Icon from "@material-ui/core/Icon";
+
+import StickyHeadTable from "../components/Table";
+import { IconButton } from "@material-ui/core";
+import { Edit } from "@material-ui/icons";
+import { Delete } from "@material-ui/icons";
+
+function createData(
+  si_no,
+  name,
+  floor,
+  category,
+  size,
+  description,
+  shoplogo,
+  shoppath,
+  actions
+) {
+  return {
+    si_no,
+    name,
+    floor,
+    category,
+    size,
+    description,
+    shoplogo,
+    shoppath,
+    actions
+  };
+}
+
+const rows = [
+  createData(
+    "1",
+    "Max",
+    "1",
+    "Max",
+    "1",
+    "Max",
+    1324171354,
+    99999,
+    999
+  ),
+  createData(
+    "1",
+    "Max",
+    "1",
+    "Max",
+    "1",
+    "Max",
+    1324171354,
+    99999,
+    999
+  ), createData(
+    "1",
+    "Max",
+    "1",
+    "Max",
+    "1",
+    "Max",
+    1324171354,
+    99999,
+    999
+  ), createData(
+    "1",
+    "Max",
+    "1",
+    "Max",
+    "1",
+    "Max",
+    1324171354,
+    99999,
+    999
+  ), createData(
+    "1",
+    "Max",
+    "1",
+    "Max",
+    "1",
+    "Max",
+    1324171354,
+    99999,
+    999
+  ), createData(
+    "1",
+    "Max",
+    "1",
+    "Max",
+    "1",
+    "Max",
+    1324171354,
+    99999,
+    999
+  ), createData(
+    "1",
+    "Max",
+    "1",
+    "Max",
+    "1",
+    "Max",
+    1324171354,
+    99999,
+    999
+  ),
+  createData("1", "China", "CN", 1403500365, 9596961),
+  createData("1", "Italy", "IT", 60483973, 301340),
+  createData("1", "United States", "US", 327167434, 9833520),
+  createData("1", "Canada", "CA", 37602103, 9984670),
+  createData("1", "Australia", "AU", 25475400, 7692024),
+  createData("1", "Germany", "DE", 83019200, 357578),
+  createData("1", "Ireland", "IE", 4857000, 70273)
+];
+
+const columns = [
+  { id: "si_no", label: "SI No.", minWidth: 30 },
+  { id: "name", label: "Name", minWidth: 100 },
+  { id: "floor", label: "Floor", minWidth: 80 },
+  {
+    id: "category",
+    label: "Category",
+    minWidth: 80,
+    format: value => value.toLocaleString()
+  },
+  {
+    id: "description",
+    label: "Description",
+    minWidth: 150,
+    format: value => value.toLocaleString()
+  },
+  {
+    id: "shoplogo",
+    label: "Shop Logo",
+    minWidth: 80,
+    format: value => value.toFixed(2)
+  },
+  {
+    id: "shoppath",
+    label: "Shop Path",
+    minWidth: 80,
+    format: value => value.toFixed(2)
+  },
+  {
+    id: "actions",
+    label: "Actions",
+    minWidth: 100,
+    format: value => (
+      <div>
+      <IconButton size="small" color="primary">
+        <Edit />
+      </IconButton>{""}
+       <IconButton size="small" color="secondary">
+       <Delete />
+     </IconButton></div>
+    )
+  }
+];
+
+
 function Shops() {
   const classes = useStyles();
   const [isOneDayEvent, setIsOneDayEvent] = useState(false);
@@ -37,7 +193,7 @@ function Shops() {
   };
 
   return (
-    <div style={{ padding: 20 }}>
+    <div style={{ padding: 10 }}>
       <Grid container>
         <Grid item xs={6}>
           <Typography variant="h4">Shops</Typography>
@@ -53,11 +209,16 @@ function Shops() {
             Add Shops
           </Button>
         </Grid>
+        <Grid item xs={12} style={{ paddingTop: "15px" }}>
+          <StickyHeadTable rows={rows} columns={columns} />
+        </Grid>
       </Grid>
       <Dialog
         open={open}
         onClose={handleClose}
         aria-labelledby="form-dialog-title"
+        className={classes.card}
+       
       >
         <DialogContent>
           <TextField
@@ -105,7 +266,11 @@ function Shops() {
             </Select>
           </FormControl>
 
+
+          <br /><br />
+
           <br />
+
           <InputLabel className={classes.input}>
             Upload Shop Logo
             <Input
@@ -116,6 +281,15 @@ function Shops() {
             />
           </InputLabel>
 
+
+         
+     
+      </DialogContent>
+      
+        <br />
+        <DialogActions >
+          <Button onClick={handleClose} variant="contained" color="primary" className={classes.button} >
+
           <br />
           {/* <Button variant="contained" color="primary" className={classes.button}>
         Login
@@ -123,9 +297,10 @@ function Shops() {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} color="primary">
+
             Cancel
           </Button>
-          <Button onClick={handleClose} color="primary">
+          <Button onClick={handleClose} variant="contained" color="primary" className={classes.button}>
             Add
           </Button>
         </DialogActions>
@@ -136,16 +311,29 @@ function Shops() {
 
 const useStyles = makeStyles(theme =>
   createStyles({
-    textField: {
-      marginLeft: theme.spacing(1),
+    textField: {      
       marginRight: theme.spacing(1),
-      width: 250
+      width: 300
     },
     formControl: {
-      minWidth: 250
+      marginTop: theme.spacing(1),
+      marginBottom: theme.spacing(1),      
+      marginRight: theme.spacing(1),
+      minWidth: 300
     },
-    input: {
-      width: 250
+    card: {
+      maxWidth: 450,
+      margin: 'auto',
+      transition: "0.3s",
+      height:"100%",
+      boxShadow: "0 8px 40px -12px rgba(0,0,255,0.3)",
+      "&:hover": {
+        boxShadow: "0 16px 70px -12.125px rgba(0,0,255,0.3)"
+      }
+    },
+    input: {     
+      marginRight: theme.spacing(1),
+      minWidth: 300
     }
   })
 );

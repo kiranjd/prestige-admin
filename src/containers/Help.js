@@ -31,7 +31,7 @@ function Help() {
       />
       <br />
       <Button variant="contained" color="primary" className={classes.button}>
-        Login
+        Submit
       </Button>
     </FormCardContainer>
   );
@@ -41,8 +41,8 @@ const useStyles = makeStyles(theme =>
     textField: {
       marginLeft: theme.spacing(1),
       marginRight: theme.spacing(1),
-      width: 250,
-      fontSize: 5
+      width: 300,
+      
     }
   })
 );
