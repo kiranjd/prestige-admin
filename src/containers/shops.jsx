@@ -1,30 +1,20 @@
 import React, { useState } from "react";
 import Button from "@material-ui/core/Button";
 import Add from "@material-ui/icons/Add";
-
-import { Grid, Typography } from "@material-ui/core";
-
 import {
   Input,
   Grid,
   Typography,
   Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogContentText,
-  DialogActions,
-  FormControlLabel,
-  Checkbox
+    DialogContent,
+   DialogActions, 
 } from "@material-ui/core";
-
 import TextField from "@material-ui/core/TextField";
-import FormCardContainer from "../components/FormCardContainer";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
 import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
-
 import StickyHeadTable from "../components/Table";
 import { IconButton } from "@material-ui/core";
 import { Edit } from "@material-ui/icons";
@@ -126,14 +116,7 @@ const rows = [
     1324171354,
     99999,
     999
-  ),
-  createData("1", "China", "CN", 1403500365, 9596961),
-  createData("1", "Italy", "IT", 60483973, 301340),
-  createData("1", "United States", "US", 327167434, 9833520),
-  createData("1", "Canada", "CA", 37602103, 9984670),
-  createData("1", "Australia", "AU", 25475400, 7692024),
-  createData("1", "Germany", "DE", 83019200, 357578),
-  createData("1", "Ireland", "IE", 4857000, 70273)
+  )
 ];
 
 const columns = [
@@ -265,12 +248,7 @@ function Shops() {
               <MenuItem value={40}>Games</MenuItem>
             </Select>
           </FormControl>
-
-
           <br /><br />
-
-          <br />
-
           <InputLabel className={classes.input}>
             Upload Shop Logo
             <Input
@@ -279,25 +257,10 @@ function Shops() {
               id="icon-button-video"
               type="file"
             />
-          </InputLabel>
-
-
-         
-     
-      </DialogContent>
-      
-        <br />
-        <DialogActions >
-          <Button onClick={handleClose} variant="contained" color="primary" className={classes.button} >
-
-          <br />
-          {/* <Button variant="contained" color="primary" className={classes.button}>
-        Login
-      </Button> */}
+          </InputLabel>       
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
-
+          <Button onClick={handleClose} variant="contained" color="primary" className={classes.button}>
             Cancel
           </Button>
           <Button onClick={handleClose} variant="contained" color="primary" className={classes.button}>
