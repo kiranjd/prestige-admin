@@ -15,7 +15,7 @@ body {
 
 .sidebar {
   grid-area: sidebar;
-  background: #203672;
+  background: #090057;
 }
 .content {
   grid-area: content;

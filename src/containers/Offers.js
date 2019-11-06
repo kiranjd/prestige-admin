@@ -13,7 +13,142 @@ import {
   DialogContentText,
   DialogActions
 } from "@material-ui/core";
-import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
+import { createStyles, makeStyles } from "@material-ui/core/styles";
+import StickyHeadTable from "../components/Table";
+import { IconButton } from "@material-ui/core";
+import { Edit } from "@material-ui/icons";
+import { Delete } from "@material-ui/icons";
+
+function createData(
+  si_no,
+  name,
+  SelectShop,
+  Validity,
+
+  description,
+
+  actions
+) {
+  return {
+    si_no,
+    name,
+    SelectShop,
+    Validity,
+
+    description,
+
+    actions
+  };
+}
+
+const rows = [
+ 
+  createData(
+    "1",
+    "Max",
+    "1",
+    
+    "Max",
+    1324171354,
+    99999,
+    999
+  ),
+  createData(
+    "1",
+    "Max",
+    "1",
+    "Max",
+    
+    1324171354,
+    99999,
+    999
+  ), createData(
+    "1",
+    "Max",
+    
+    "1",
+    "Max",
+    1324171354,
+    99999,
+    999
+  ), createData(
+    "1",
+    "Max",
+   
+    "1",
+    "Max",
+    1324171354,
+    99999,
+    999
+  ), createData(
+    "1",
+    "Max",
+    "1",
+    
+    "Max",
+    1324171354,
+    99999,
+    999
+  ), createData(
+    "1",
+    "Max",
+   
+    "1",
+    "Max",
+    1324171354,
+    99999,
+    999
+  ), createData(
+    "1",
+    "Max",
+   
+    "1",
+    "Max",
+    1324171354,
+    99999,
+    999
+  ),
+  createData("1", "Japan", "JP", 126317000, 377973),
+  createData("1", "France", "FR", 67022000, 640679),
+  createData("1", "United Kingdom", "GB", 67545757, 242495),
+  createData("1", "Russia", "RU", 146793744, 17098246),
+  createData("1", "Nigeria", "NG", 200962417, 923768),
+  createData("1", "Brazil", "BR", 210147125, 8515767)
+];
+
+const columns = [
+  { id: "si_no", label: "SI No.", minWidth: 30 },
+  { id: "name", label: "Name", minWidth: 100 },
+  { id: "Validity", label: "Validity", minWidth: 100 },
+  {
+    id: "SelectShop",
+    label: "Select Shop",
+    minWidth: 100,
+    format: value => value.toLocaleString()
+  },
+  {
+    id: "description",
+    label: "Description",
+    minWidth: 150,
+    format: value => value.toLocaleString()
+  },
+
+  {
+    id: "actions",
+    label: "Actions",
+    minWidth: 100,
+    format: value => (
+      <div>
+      <IconButton size="small" color="primary">
+        <Edit />
+      </IconButton>{""}
+       <IconButton size="small" color="secondary">
+       <Delete />
+     </IconButton></div>
+    )
+  }
+];
+
 const shops = [
   {
     label: "shop 1"
@@ -48,7 +183,7 @@ function Offers() {
   // };
   return (
     <>
-      <div style={{ padding: 20 }}>
+      <div style={{ padding: 10 }}>
         <Grid container>
           <Grid item xs={6}>
             <Typography variant="h4">Offers</Typography>
@@ -64,6 +199,9 @@ function Offers() {
               Add Offers
             </Button>
           </Grid>
+          <Grid item xs={12} style={{ paddingTop: "15px" }}>
+            <StickyHeadTable rows={rows} columns={columns} />
+          </Grid>
         </Grid>
       </div>
 
@@ -71,6 +209,7 @@ function Offers() {
         open={open}
         onClose={handleClose}
         aria-labelledby="form-dialog-title"
+        className={classes.card}
       >
         <DialogContent>
           <TextField
@@ -121,23 +260,14 @@ function Offers() {
               </option>
             ))}
           </TextField>
-          <br />
-          {/* <Button
-            variant="contained"
-            color="primary"
-            className={classes.button}
-          >
-            Login
-          </Button> */}
-          {/* <Button variant="contained" color="primary" className={classes.button}>
-        Login
-      </Button> */}
+         
         </DialogContent>
+        <br />
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
+          <Button onClick={handleClose} variant="contained" color="primary" className={classes.button}>
             Cancel
           </Button>
-          <Button onClick={handleClose} color="primary">
+          <Button onClick={handleClose} variant="contained" color="primary" className={classes.button}>
             Add
           </Button>
         </DialogActions>
@@ -148,10 +278,20 @@ function Offers() {
 
 const useStyles = makeStyles(theme =>
   createStyles({
+    card: {
+      maxWidth: 455,
+      margin: 'auto',
+      transition: "0.3s",
+      height:"100%",
+      boxShadow: "0 8px 40px -12px rgba(0,0,255,0.3)",
+      "&:hover": {
+        boxShadow: "0 16px 70px -12.125px rgba(0,0,255,0.3)"
+      }
+    },
     textField: {
-      marginLeft: theme.spacing(1),
+     
       marginRight: theme.spacing(1),
-      width: 250
+      width: 300
     }
   })
 );

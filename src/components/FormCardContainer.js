@@ -24,11 +24,11 @@ const useStyles = makeStyles(theme => {
       alignItems: "center"
     },
     card: {
-      maxWidth: 300,
+      maxWidth: 350,
       margin: "2%",
       padding: "15px",
       transition: "0.3s",
-
+     
       boxShadow: "0 8px 40px -12px rgba(0,0,255,0.3)",
       "&:hover": {
         boxShadow: "0 16px 70px -12.125px rgba(128,0,128,0.3)"

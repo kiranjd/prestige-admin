@@ -28,7 +28,7 @@ export default function Navbar() {
 }
 
 const NavWrapper = styled.nav`
-  background: #132743;
+  background: #0c093c;
   height: 60px;
   border-radius: 0;
 `;
