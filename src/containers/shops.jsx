@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import Button from "@material-ui/core/Button";
 import Add from "@material-ui/icons/Add";
+
+import { Grid, Typography } from "@material-ui/core";
+
 import {
   Input,
   Grid,
@@ -21,6 +24,7 @@ import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
+
 import StickyHeadTable from "../components/Table";
 import { IconButton } from "@material-ui/core";
 import { Edit } from "@material-ui/icons";
@@ -176,6 +180,7 @@ const columns = [
   }
 ];
 
+
 function Shops() {
   const classes = useStyles();
   const [isOneDayEvent, setIsOneDayEvent] = useState(false);
@@ -261,7 +266,11 @@ function Shops() {
             </Select>
           </FormControl>
 
+
           <br /><br />
+
+          <br />
+
           <InputLabel className={classes.input}>
             Upload Shop Logo
             <Input
@@ -272,6 +281,7 @@ function Shops() {
             />
           </InputLabel>
 
+
          
      
       </DialogContent>
@@ -279,6 +289,15 @@ function Shops() {
         <br />
         <DialogActions >
           <Button onClick={handleClose} variant="contained" color="primary" className={classes.button} >
+
+          <br />
+          {/* <Button variant="contained" color="primary" className={classes.button}>
+        Login
+      </Button> */}
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose} color="primary">
+
             Cancel
           </Button>
           <Button onClick={handleClose} variant="contained" color="primary" className={classes.button}>
