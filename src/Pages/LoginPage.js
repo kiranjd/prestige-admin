@@ -12,10 +12,10 @@ export default function LoginPage() {
   return (
     <Card className={classes.card}>
       <div className={classes.container}>
-        <img src="/logo.jpg" width="80" height="80" />
+        <img src="/logo.jpg" width="80" height="80" alt="logo" />
         <br />
 
-        <Typography className={"classes.heading"} variant={"h5"} gutterBottom>
+        <Typography className="classes.heading" variant="h5" gutterBottom>
           Way Finder
         </Typography>
         <TextField

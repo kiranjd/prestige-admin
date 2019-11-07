@@ -1,8 +1,9 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
-import FormCardContainer from "../components/FormCardContainer";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
+import FormCardContainer from "../components/FormCardContainer";
+
 function Help() {
   const classes = useStyles();
   return (
@@ -41,8 +42,7 @@ const useStyles = makeStyles(theme =>
     textField: {
       marginLeft: theme.spacing(1),
       marginRight: theme.spacing(1),
-      width: 300,
-      
+      width: 300
     }
   })
 );

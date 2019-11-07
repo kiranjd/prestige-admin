@@ -7,34 +7,25 @@ import {
   Grid,
   Typography,
   Dialog,
-   DialogContent,
-    DialogActions
+  DialogContent,
+  DialogActions,
+  InputLabel,
+  Checkbox,
+  IconButton
 } from "@material-ui/core";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
-import { InputLabel } from "@material-ui/core";
-import { Checkbox } from "@material-ui/core";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
-import StickyHeadTable from "./components/Table";
-import { IconButton } from "@material-ui/core";
-import { Edit } from "@material-ui/icons";
-import { Delete } from "@material-ui/icons";
+import { Edit, Delete } from "@material-ui/icons";
+import StickyHeadTable from "../components/Table";
 
-function createData(
-  si_no,
-  name,
-  StartDate,
-  EndDate,
-  EventImage,
-  description,  
-  actions
-) {
+function createData(SiNo, name, StartDate, EndDate, EventImage, description, actions) {
   return {
-    si_no,
+    SiNo,
     name,
     StartDate,
     EndDate,
     EventImage,
-    description,   
+    description,
     actions
   };
 }
@@ -43,7 +34,7 @@ const rows = [
   createData(
     "1",
     "Max",
-    
+
     "1",
     "Max",
     1324171354,
@@ -52,106 +43,117 @@ const rows = [
   ),
   createData(
     "1",
-   
+
     1324171354,
     3287263,
     "1",
     "Max",
     1324171354,
     3287263
-  ), createData(
+  ),
+  createData(
     "1",
-    
+
     1324171354,
     3287263,
     "1",
     "Max",
     1324171354,
     3287263
-  ), createData(
+  ),
+  createData(
     "1",
-    
+
     1324171354,
     3287263,
     "1",
     "Max",
     1324171354,
     3287263
-  ), createData(
+  ),
+  createData(
     "1",
-    
+
     1324171354,
     3287263,
     "1",
     "Max",
     1324171354,
     3287263
-  ), createData(
+  ),
+  createData(
     "1",
-    
+
     1324171354,
     3287263,
     "1",
     "Max",
     1324171354,
     3287263
-  ), createData(
+  ),
+  createData(
     "1",
-   
+
     1324171354,
     3287263,
     "1",
     "Max",
     1324171354,
     3287263
-  ), createData(
+  ),
+  createData(
     "1",
-   
+
     1324171354,
     3287263,
     "1",
     "Max",
     1324171354,
     3287263
-  ), createData(
+  ),
+  createData(
     "1",
-    
+
     1324171354,
     3287263,
     "1",
     "Max",
     1324171354,
     3287263
-  ), createData(
+  ),
+  createData(
     "1",
-    
+
     1324171354,
     3287263,
     "1",
     "Max",
     1324171354,
     3287263
-  ), createData(
+  ),
+  createData(
     "1",
-    
+
     1324171354,
     3287263,
     "1",
     "Max",
     1324171354,
     3287263
-  ), createData(
+  ),
+  createData(
     "1",
-    
+
     1324171354,
     3287263,
     "1",
     "Max",
     1324171354,
     3287263
-  ), createData(
+  ),
+  createData(
     "1",
-   
+
     1324171354,
     3287263,
     "1",
@@ -162,7 +164,7 @@ const rows = [
 ];
 
 const columns = [
-  { id: "si_no", label: "SI No.", minWidth: 30 },
+  { id: "SiNo", label: "SI No.", minWidth: 30 },
   { id: "name", label: "Name", minWidth: 100 },
   { id: "StartDate", label: "Start Date", minWidth: 100 },
   {
@@ -183,19 +185,20 @@ const columns = [
     minWidth: 100,
     format: value => value.toFixed(2)
   },
-  
   {
     id: "actions",
     label: "Actions",
     minWidth: 100,
     format: value => (
       <div>
-      <IconButton size="small" color="primary">
-        <Edit />
-      </IconButton>{""}
-       <IconButton size="small" color="secondary">
-       <Delete />
-     </IconButton></div>
+        <IconButton size="small" color="primary">
+          <Edit />
+        </IconButton>
+        {""}
+        <IconButton size="small" color="secondary">
+          <Delete />
+        </IconButton>
+      </div>
     )
   }
 ];
@@ -268,10 +271,7 @@ function Events() {
           <FormControlLabel
             className={classes.FormControlLabel}
             control={
-              <Checkbox
-                value={isOneDayEvent}
-                onChange={() => setIsOneDayEvent(!isOneDayEvent)}
-              />
+              <Checkbox value={isOneDayEvent} onChange={() => setIsOneDayEvent(!isOneDayEvent)} />
             }
             label="One Day Event?"
           />
@@ -289,23 +289,29 @@ function Events() {
               }}
             />
           )}
-          <br /><br />
+          <br />
+          <br />
           <InputLabel className={classes.input}>
             Upload Event Image
-            <Input
-              capture="camcorder"
-              className={classes.input}
-              type="file"
-              accept="image/*"
-            />
+            <Input capture="camcorder" className={classes.input} type="file" accept="image/*" />
           </InputLabel>
         </DialogContent>
         <br />
         <DialogActions>
-          <Button onClick={handleClose} variant="contained" color="primary" className={classes.button}>
+          <Button
+            onClick={handleClose}
+            variant="contained"
+            color="primary"
+            className={classes.button}
+          >
             Cancel
           </Button>
-          <Button onClick={handleClose} variant="contained" color="primary" className={classes.button}>
+          <Button
+            onClick={handleClose}
+            variant="contained"
+            color="primary"
+            className={classes.button}
+          >
             Add
           </Button>
         </DialogActions>
@@ -323,9 +329,9 @@ const useStyles = makeStyles(theme =>
     },
     card: {
       maxWidth: 450,
-      margin: 'auto',
+      margin: "auto",
       transition: "0.3s",
-      height:"100%",
+      height: "100%",
       boxShadow: "0 8px 40px -12px rgba(0,0,255,0.3)",
       "&:hover": {
         boxShadow: "0 16px 70px -12.125px rgba(0,0,255,0.3)"
