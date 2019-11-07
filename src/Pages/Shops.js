@@ -1,21 +1,27 @@
 import React, { useState } from "react";
 import Button from "@material-ui/core/Button";
 import Add from "@material-ui/icons/Add";
-import { Input, Grid, Typography, Dialog, DialogContent, DialogActions } from "@material-ui/core";
+import {
+  Input,
+  Grid,
+  Typography,
+  Dialog,
+  DialogContent,
+  DialogActions,
+  IconButton
+} from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
 import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
+import { Edit, Delete } from "@material-ui/icons";
 import StickyHeadTable from "../components/Table";
-import { IconButton } from "@material-ui/core";
-import { Edit } from "@material-ui/icons";
-import { Delete } from "@material-ui/icons";
 
-function createData(si_no, name, floor, category, size, description, shoplogo, shoppath, actions) {
+function createData(SiNo, name, floor, category, size, description, shoplogo, shoppath, actions) {
   return {
-    si_no,
+    SiNo,
     name,
     floor,
     category,
@@ -38,7 +44,7 @@ const rows = [
 ];
 
 const columns = [
-  { id: "si_no", label: "SI No.", minWidth: 30 },
+  { id: "SiNo", label: "SI No.", minWidth: 30 },
   { id: "name", label: "Name", minWidth: 100 },
   { id: "floor", label: "Floor", minWidth: 80 },
   {
@@ -69,7 +75,7 @@ const columns = [
     id: "actions",
     label: "Actions",
     minWidth: 100,
-    format: value => (
+    format: () => (
       <div>
         <IconButton size="small" color="primary">
           <Edit />

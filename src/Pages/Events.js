@@ -16,11 +16,11 @@ import {
 } from "@material-ui/core";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
 import { Edit, Delete } from "@material-ui/icons";
-import StickyHeadTable from "./components/Table";
+import StickyHeadTable from "../components/Table";
 
-function createData(slNo, name, StartDate, EndDate, EventImage, description, actions) {
+function createData(SiNo, name, StartDate, EndDate, EventImage, description, actions) {
   return {
-    slNo,
+    SiNo,
     name,
     StartDate,
     EndDate,
@@ -164,7 +164,7 @@ const rows = [
 ];
 
 const columns = [
-  { id: "si_no", label: "SI No.", minWidth: 30 },
+  { id: "SiNo", label: "SI No.", minWidth: 30 },
   { id: "name", label: "Name", minWidth: 100 },
   { id: "StartDate", label: "Start Date", minWidth: 100 },
   {
@@ -185,7 +185,6 @@ const columns = [
     minWidth: 100,
     format: value => value.toFixed(2)
   },
-
   {
     id: "actions",
     label: "Actions",
