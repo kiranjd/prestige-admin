@@ -75,7 +75,7 @@ const columns = [
     id: "actions",
     label: "Actions",
     minWidth: 100,
-    format: value => (
+    format: () => (
       <div>
         <IconButton size="small" color="primary">
           <Edit />

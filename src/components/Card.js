@@ -1,10 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 
-class Card extends Component {
-  state = {};
-  render() {
-    return <div className="card">{this.props.children}</div>;
-  }
-}
+const Card = ({ children }) => {
+  return <div className="card">{children}</div>;
+};
 
 export default Card;

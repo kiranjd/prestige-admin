@@ -1,20 +1,20 @@
 import React, { useState } from "react";
-import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
 import Add from "@material-ui/icons/Add";
 import {
+  TextField,
+  Button,
+  InputLabel,
+  Checkbox,
+  FormControlLabel,
   Input,
+  IconButton,
   Grid,
   Typography,
   Dialog,
   DialogContent,
-  DialogActions,
-  InputLabel,
-  Checkbox,
-  IconButton
+  DialogActions
 } from "@material-ui/core";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
 import { Edit, Delete } from "@material-ui/icons";
 import StickyHeadTable from "../components/Table";
 
@@ -189,7 +189,7 @@ const columns = [
     id: "actions",
     label: "Actions",
     minWidth: 100,
-    format: value => (
+    format: () => (
       <div>
         <IconButton size="small" color="primary">
           <Edit />
