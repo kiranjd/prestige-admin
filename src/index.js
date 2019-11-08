@@ -1,9 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
-//
 import { BrowserRouter } from "react-router-dom";
-import LoginPage from "./containers/LoginPage";
-import App from "./app";
+// eslint-disable-next-line import/no-unresolved
+import App from "./App";
 
 import "./index.css";
 

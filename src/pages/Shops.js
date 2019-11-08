@@ -6,8 +6,9 @@ import {
   Grid,
   Typography,
   Dialog,
-    DialogContent,
-   DialogActions, 
+  DialogContent,
+  DialogActions,
+  IconButton
 } from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
@@ -15,24 +16,12 @@ import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
+import { Edit, Delete } from "@material-ui/icons";
 import StickyHeadTable from "../components/Table";
-import { IconButton } from "@material-ui/core";
-import { Edit } from "@material-ui/icons";
-import { Delete } from "@material-ui/icons";
 
-function createData(
-  si_no,
-  name,
-  floor,
-  category,
-  size,
-  description,
-  shoplogo,
-  shoppath,
-  actions
-) {
+function createData(SiNo, name, floor, category, size, description, shoplogo, shoppath, actions) {
   return {
-    si_no,
+    SiNo,
     name,
     floor,
     category,
@@ -45,82 +34,17 @@ function createData(
 }
 
 const rows = [
-  createData(
-    "1",
-    "Max",
-    "1",
-    "Max",
-    "1",
-    "Max",
-    1324171354,
-    99999,
-    999
-  ),
-  createData(
-    "1",
-    "Max",
-    "1",
-    "Max",
-    "1",
-    "Max",
-    1324171354,
-    99999,
-    999
-  ), createData(
-    "1",
-    "Max",
-    "1",
-    "Max",
-    "1",
-    "Max",
-    1324171354,
-    99999,
-    999
-  ), createData(
-    "1",
-    "Max",
-    "1",
-    "Max",
-    "1",
-    "Max",
-    1324171354,
-    99999,
-    999
-  ), createData(
-    "1",
-    "Max",
-    "1",
-    "Max",
-    "1",
-    "Max",
-    1324171354,
-    99999,
-    999
-  ), createData(
-    "1",
-    "Max",
-    "1",
-    "Max",
-    "1",
-    "Max",
-    1324171354,
-    99999,
-    999
-  ), createData(
-    "1",
-    "Max",
-    "1",
-    "Max",
-    "1",
-    "Max",
-    1324171354,
-    99999,
-    999
-  )
+  createData("1", "Max", "1", "Max", "1", "Max", 1324171354, 99999, 999),
+  createData("1", "Max", "1", "Max", "1", "Max", 1324171354, 99999, 999),
+  createData("1", "Max", "1", "Max", "1", "Max", 1324171354, 99999, 999),
+  createData("1", "Max", "1", "Max", "1", "Max", 1324171354, 99999, 999),
+  createData("1", "Max", "1", "Max", "1", "Max", 1324171354, 99999, 999),
+  createData("1", "Max", "1", "Max", "1", "Max", 1324171354, 99999, 999),
+  createData("1", "Max", "1", "Max", "1", "Max", 1324171354, 99999, 999)
 ];
 
 const columns = [
-  { id: "si_no", label: "SI No.", minWidth: 30 },
+  { id: "SiNo", label: "SI No.", minWidth: 30 },
   { id: "name", label: "Name", minWidth: 100 },
   { id: "floor", label: "Floor", minWidth: 80 },
   {
@@ -151,18 +75,19 @@ const columns = [
     id: "actions",
     label: "Actions",
     minWidth: 100,
-    format: value => (
+    format: () => (
       <div>
-      <IconButton size="small" color="primary">
-        <Edit />
-      </IconButton>{""}
-       <IconButton size="small" color="secondary">
-       <Delete />
-     </IconButton></div>
+        <IconButton size="small" color="primary">
+          <Edit />
+        </IconButton>
+        {""}
+        <IconButton size="small" color="secondary">
+          <Delete />
+        </IconButton>
+      </div>
     )
   }
 ];
-
 
 function Shops() {
   const classes = useStyles();
@@ -174,6 +99,8 @@ function Shops() {
   const handleClickOpen = () => {
     setOpen(true);
   };
+
+  const handleChange = () => {};
 
   return (
     <div style={{ padding: 10 }}>
@@ -201,7 +128,6 @@ function Shops() {
         onClose={handleClose}
         aria-labelledby="form-dialog-title"
         className={classes.card}
-       
       >
         <DialogContent>
           <TextField
@@ -240,7 +166,7 @@ function Shops() {
               labelId="demo-simple-select-label"
               id="demo-simple-select"
               // value={age}
-              // onChange={handleChange}
+              onChange={handleChange}
             >
               <MenuItem value={10}>Food</MenuItem>
               <MenuItem value={20}>Entertainment </MenuItem>
@@ -248,7 +174,8 @@ function Shops() {
               <MenuItem value={40}>Games</MenuItem>
             </Select>
           </FormControl>
-          <br /><br />
+          <br />
+          <br />
           <InputLabel className={classes.input}>
             Upload Shop Logo
             <Input
@@ -257,13 +184,23 @@ function Shops() {
               id="icon-button-video"
               type="file"
             />
-          </InputLabel>       
+          </InputLabel>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} variant="contained" color="primary" className={classes.button}>
+          <Button
+            onClick={handleClose}
+            variant="contained"
+            color="primary"
+            className={classes.button}
+          >
             Cancel
           </Button>
-          <Button onClick={handleClose} variant="contained" color="primary" className={classes.button}>
+          <Button
+            onClick={handleClose}
+            variant="contained"
+            color="primary"
+            className={classes.button}
+          >
             Add
           </Button>
         </DialogActions>
@@ -274,27 +211,27 @@ function Shops() {
 
 const useStyles = makeStyles(theme =>
   createStyles({
-    textField: {      
+    textField: {
       marginRight: theme.spacing(1),
       width: 300
     },
     formControl: {
       marginTop: theme.spacing(1),
-      marginBottom: theme.spacing(1),      
+      marginBottom: theme.spacing(1),
       marginRight: theme.spacing(1),
       minWidth: 300
     },
     card: {
       maxWidth: 450,
-      margin: 'auto',
+      margin: "auto",
       transition: "0.3s",
-      height:"100%",
+      height: "100%",
       boxShadow: "0 8px 40px -12px rgba(0,0,255,0.3)",
       "&:hover": {
         boxShadow: "0 16px 70px -12.125px rgba(0,0,255,0.3)"
       }
     },
-    input: {     
+    input: {
       marginRight: theme.spacing(1),
       minWidth: 300
     }

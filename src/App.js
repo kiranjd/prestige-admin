@@ -1,30 +1,31 @@
 import React, { Component } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
-import Home from "./containers/home";
-import Shops from "./containers/shops";
-import Offers from "./containers/Offers";
-import Help from "./containers/Help";
+import Home from "./pages/Home";
+import Shops from "./pages/Shops";
+import Offers from "./pages/Offers";
+import Help from "./pages/Help";
 import Navbar from "./components/Navbar";
-import Events from "./events";
+import Events from "./pages/Events";
 
 class App extends Component {
   state = {
     location: "home",
     name: ""
   };
+
   componentDidMount() {
     this.setState({
-      location: window.location.href.split("/")[
-        window.location.href.split("/").length - 1
-      ],
+      location: window.location.href.split("/")[window.location.href.split("/").length - 1],
       name: "home"
     });
   }
+
   getClass = name => {
     this.setState({
       name
     });
   };
+
   render() {
     return (
       <main className="app">

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import banner from "../assets/puma.jpg";
-import Card from "../components/card";
+import Card from "../components/Card";
 import adop from "../assets/adopt.jpg";
 
 class Home extends Component {
