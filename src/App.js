@@ -6,6 +6,8 @@ import Offers from "./pages/Offers";
 import Help from "./pages/Help";
 import Navbar from "./components/Navbar";
 import Events from "./pages/Events";
+import { log } from "util";
+import { withRouter } from "react-router-dom";
 
 class App extends Component {
   state = {
@@ -16,17 +18,22 @@ class App extends Component {
   componentDidMount() {
     this.setState({
       location: window.location.href.split("/")[window.location.href.split("/").length - 1],
+      // eslint-disable-next-line react/no-unused-state
       name: "home"
     });
   }
 
-  getClass = name => {
+  getClass = location => {
+    // console.log(this.props);
+
+    this.props.history.replace(location);
     this.setState({
-      name
+      location
     });
   };
 
   render() {
+    const { location } = this.state;
     return (
       <main className="app">
         <Navbar />
@@ -35,12 +42,42 @@ class App extends Component {
             <li>
               <img src="" alt="" />
             </li>
-            <li className="">Home</li>
-            <li className="active">Banners</li>
-            <li>Shops</li>
-            <li>Offers</li>
-            <li>Events</li>
-            <li>Help</li>
+            <li
+              onClick={() => this.getClass("home")}
+              className={location === "home" ? "active" : ""}
+            >
+              Home
+            </li>
+            {/* <li
+              onClick={() => this.getClass("banners")}
+              className={location === "banners" ? "active" : ""}
+            >
+              Banners
+            </li> */}
+            <li
+              onClick={() => this.getClass("shops")}
+              className={location === "shops" ? "active" : ""}
+            >
+              Shops
+            </li>
+            <li
+              onClick={() => this.getClass("offers")}
+              className={location === "offers" ? "active" : ""}
+            >
+              Offers
+            </li>
+            <li
+              onClick={() => this.getClass("events")}
+              className={location === "events" ? "active" : ""}
+            >
+              Events
+            </li>
+            <li
+              onClick={() => this.getClass("help")}
+              className={location === "help" ? "active" : ""}
+            >
+              Help
+            </li>
           </ul>
         </aside>
         <div className="content">
@@ -59,4 +96,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);
