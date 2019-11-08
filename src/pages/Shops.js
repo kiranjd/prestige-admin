@@ -100,6 +100,8 @@ function Shops() {
     setOpen(true);
   };
 
+  const handleChange = () => {};
+
   return (
     <div style={{ padding: 10 }}>
       <Grid container>
@@ -164,7 +166,7 @@ function Shops() {
               labelId="demo-simple-select-label"
               id="demo-simple-select"
               // value={age}
-              // onChange={handleChange}
+              onChange={handleChange}
             >
               <MenuItem value={10}>Food</MenuItem>
               <MenuItem value={20}>Entertainment </MenuItem>

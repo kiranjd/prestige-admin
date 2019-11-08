@@ -29,6 +29,7 @@ function createData(SiNo, name, StartDate, EndDate, EventImage, description, act
     actions
   };
 }
+const handleChange = () => {};
 
 const rows = [
   createData(
