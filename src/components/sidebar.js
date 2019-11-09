@@ -1,13 +1,4 @@
 import React from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
-import Home from "./pages/Home";
-import Shops from "./pages/Shops";
-import Navbar from "./components/Navbar";
-
-import Offers from "./pages/Offers";
-import Help from "./pages/Help";
-import { withRouter } from "react-router-dom";
-import Events from "./pages/Events";
 import clsx from "clsx";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
@@ -85,96 +76,53 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const PersistentDrawerLeft = props => {
+export default function Sidebar() {
   const classes = useStyles();
   const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
+  // const [open, setOpen] = React.useState(false);
 
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
-
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
-
-  const getClass = location => {
-    // console.log(this.props);
-
-    props.history.replace(location);
-  };
   return (
+      <aside className="sidebar">
     <div className={classes.root}>
       <CssBaseline />
       <AppBar
         position="fixed"
         className={clsx(classes.appBar, {
-          [classes.appBarShift]: open
+        //   [classes.appBarShift]: open
         })}
-      >
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            className={clsx(classes.menuButton, open && classes.hide)}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Navbar />
-        </Toolbar>
-      </AppBar>
+      />
       <Drawer
         className={classes.drawer}
         variant="persistent"
         anchor="left"
-        open={open}
         classes={{
           paper: classes.drawerPaper
         }}
       >
-        <div className={classes.drawerHeader}>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === "ltr" ? <ChevronLeftIcon /> : <ChevronRightIcon />}
-          </IconButton>
-        </div>
         <Divider />
         <List>
-          {[
-            { name: "Home", path: "home" },
-            { name: "Events", path: "events" },
-            { name: "Shops", path: "shops" },
-            { name: "Offers", path: "offers" },
-            { name: "Help", path: "help" }
-          ].map((text, index) => (
-            <ListItem button key={text.path} onClick={() => getClass(text.path)}>
-              {/* <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon> */}
-              <ListItemText primary={text.name} />
+          {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
+            <ListItem button key={text}>
+              <ListItemIcon>
+                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+              </ListItemIcon>
+              <ListItemText primary={text} />
+            </ListItem>
+          ))}
+        </List>
+        <Divider />
+        <List>
+          {["All mail", "Trash", "Spam"].map((text, index) => (
+            <ListItem button key={text}>
+              <ListItemIcon>
+                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+              </ListItemIcon>
+              <ListItemText primary={text} />
             </ListItem>
           ))}
         </List>
       </Drawer>
-      <main
-        className={clsx(classes.content, {
-          [classes.contentShift]: open
-        })}
-      >
-        <div className={classes.drawerHeader} />
-        <div className="content">
-          <Switch>
-            <Route exact path="/home" component={Home} />
-            <Route path="/shops" component={Shops} />
-
-            <Route path="/offers" component={Offers} />
-            <Route path="/help" component={Help} />
-            <Route path="/events" component={Events} />
-            <Redirect from="/" to="/home" />
-          </Switch>
-        </div>
-      </main>
     </div>
+    </aside>
   );
-};
-
-export default withRouter(PersistentDrawerLeft);
+}

@@ -8,7 +8,7 @@ class Home extends Component {
   render() {
     return (
       <section className="home">
-        <div className="home-content-top">
+        {/* <div className="home-content-top">
           <img src={banner} alt="" />
         </div>
 
@@ -28,8 +28,8 @@ class Home extends Component {
           <Card>
             <img src={adop} alt="" />
             <div>AC</div>
-          </Card>
-        </div>
+          </Card> */}
+        {/* </div> */}
       </section>
     );
   }
