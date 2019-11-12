@@ -19,6 +19,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import { Edit, Delete } from "@material-ui/icons";
 import StickyHeadTable from "../components/Table";
 import TabelContentCard from "../components/TabelContentCard";
+import ShopForm from "../components/shopForm";
 
 function createData(SiNo, name, floor, category, size, description, shoplogo, shoppath, actions) {
   return {
@@ -134,81 +135,7 @@ function Shops() {
         aria-labelledby="form-dialog-title"
         className={classes.card}
       >
-        <DialogContent>
-          <TextField
-            id="standard-basic"
-            className={classes.textField}
-            label="Shop Name"
-            margin="normal"
-          />
-          <TextField
-            id="standard-textarea"
-            label="Description"
-            multiline
-            margin="normal"
-            className={classes.textField}
-          />
-          <br />
-          <FormControl className={classes.formControl}>
-            <InputLabel id="demo-simple-select-label">Floor</InputLabel>
-            <Select
-              labelId="demo-simple-select-label"
-              id="demo-simple-select"
-              // value={age}
-              // onChange={handleChange}
-            >
-              <MenuItem value={0}>Ground</MenuItem>
-              <MenuItem value={1}>First</MenuItem>
-              <MenuItem value={2}>Second</MenuItem>
-              <MenuItem value={3}>Third</MenuItem>
-              <MenuItem value={4}>Fourth</MenuItem>
-            </Select>
-          </FormControl>
-          <br />
-          <FormControl className={classes.formControl}>
-            <InputLabel id="demo-simple-select-label">Category</InputLabel>
-            <Select
-              labelId="demo-simple-select-label"
-              id="demo-simple-select"
-              // value={age}
-              onChange={handleChange}
-            >
-              <MenuItem value={10}>Food</MenuItem>
-              <MenuItem value={20}>Entertainment </MenuItem>
-              <MenuItem value={30}>Electronics</MenuItem>
-              <MenuItem value={40}>Games</MenuItem>
-            </Select>
-          </FormControl>
-          <br />
-          <br />
-          <InputLabel className={classes.input}>
-            Upload Shop Logo
-            <Input
-              capture="camcorder"
-              className={classes.input}
-              id="icon-button-video"
-              type="file"
-            />
-          </InputLabel>
-        </DialogContent>
-        <DialogActions>
-          <Button
-            onClick={handleClose}
-            variant="contained"
-            color="primary"
-            className={classes.button}
-          >
-            Cancel
-          </Button>
-          <Button
-            onClick={handleClose}
-            variant="contained"
-            color="primary"
-            className={classes.button}
-          >
-            Add
-          </Button>
-        </DialogActions>
+        <ShopForm classes={classes} handleClose={handleClose}  handleChange={handleChange}/>
       </Dialog>
 
       <Dialog open={openInfo} onClose={handleCloseInfo} aria-labelledby="form-dialog-title">
