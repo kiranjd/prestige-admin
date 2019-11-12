@@ -1,17 +1,15 @@
 import React from "react";
-import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
 import { Add, Edit, Delete } from "@material-ui/icons";
 import {
+  Button,
   Grid,
   Typography,
   Dialog,
-  DialogContent,
-  DialogActions,
   IconButton
 } from "@material-ui/core";
 import StickyHeadTable from "../components/Table";
+import OfferForm from "../components/offersForm";
 
 function createData(SiNo, name, SelectShop, Validity, description, actions) {
   return {
@@ -55,7 +53,7 @@ const columns = [
     id: "actions",
     label: "Actions",
     minWidth: 100,
-    format: value => (
+    format: () => (
       <div>
         <IconButton size="small" color="primary">
           <Edit />
@@ -90,9 +88,6 @@ function Offers() {
   };
   const handleClickOpen = () => {
     setOpen(true);
-  };
-  const handleChange = () => {
-    console.log("b");
   };
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
@@ -131,75 +126,12 @@ function Offers() {
         aria-labelledby="form-dialog-title"
         className={classes.card}
       >
-        <DialogContent>
-          <TextField
-            id="standard-basic"
-            className={classes.textField}
-            label="Name"
-            margin="normal"
-          />
-
-          <TextField
-            id="standard-textarea"
-            label="Description"
-            multiline
-            margin="normal"
-            className={classes.textField}
-          />
-
-          <TextField
-            id="date"
-            type="date"
-            label="offer valid till"
-            placeholder="DD-MM-YYYY"
-            margin="normal"
-            className={classes.textField}
-            InputLabelProps={{
-              shrink: true
-            }}
-          />
-
-          <TextField
-            id="Select Shop id"
-            select
-            label="Select-Shop"
-            className={classes.textField}
-            // value={shop}
-            onChange={handleChange}
-            SelectProps={{
-              native: true,
-              MenuProps: {
-                className: classes.menu
-              }
-            }}
-            margin="normal"
-          >
-            {shops.map(option => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </TextField>
-        </DialogContent>
-        <br />
-        <DialogActions>
-          <Button
-            onClick={handleClose}
-            variant="contained"
-            color="primary"
-            className={classes.button}
-          >
-            Cancel
-          </Button>
-          <Button
-            onClick={handleClose}
-            variant="contained"
-            color="primary"
-            className={classes.button}
-          >
-            Add
-          </Button>
-        </DialogActions>
+        <OfferForm
+          classes={classes}
+          shops={shops}
+          // isOneDayEvent={isOneDayEvent}
+          // setIsOneDayEvent={setIsOneDayEvent}
+        />
       </Dialog>
     </>
   );
