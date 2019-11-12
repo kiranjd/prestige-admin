@@ -17,15 +17,14 @@ import {
 import { createStyles, makeStyles } from "@material-ui/core/styles";
 import { Edit, Delete } from "@material-ui/icons";
 import StickyHeadTable from "../components/Table";
+import EventsForm from "../components/eventsForm";
 
-function createData(SiNo, name, StartDate, EndDate, EventImage, description, actions) {
+function createData(SiNo, name, StartDate, EndDate, actions) {
   return {
     SiNo,
     name,
     StartDate,
     EndDate,
-    EventImage,
-    description,
     actions
   };
 }
@@ -34,162 +33,30 @@ const handleChange = () => {};
 const rows = [
   createData(
     "1",
-    "Max",
+    "Literature Festival",
+    "11-10-2019",
+    "14-10-2019",
 
-    "1",
-    "Max",
-    1324171354,
-    99999,
-    999
+    999333
   ),
-  createData(
-    "1",
-
-    1324171354,
-    3287263,
-    "1",
-    "Max",
-    1324171354,
-    3287263
-  ),
-  createData(
-    "1",
-
-    1324171354,
-    3287263,
-    "1",
-    "Max",
-    1324171354,
-    3287263
-  ),
-  createData(
-    "1",
-
-    1324171354,
-    3287263,
-    "1",
-    "Max",
-    1324171354,
-    3287263
-  ),
-  createData(
-    "1",
-
-    1324171354,
-    3287263,
-    "1",
-    "Max",
-    1324171354,
-    3287263
-  ),
-  createData(
-    "1",
-
-    1324171354,
-    3287263,
-    "1",
-    "Max",
-    1324171354,
-    3287263
-  ),
-  createData(
-    "1",
-
-    1324171354,
-    3287263,
-    "1",
-    "Max",
-    1324171354,
-    3287263
-  ),
-  createData(
-    "1",
-
-    1324171354,
-    3287263,
-    "1",
-    "Max",
-    1324171354,
-    3287263
-  ),
-  createData(
-    "1",
-
-    1324171354,
-    3287263,
-    "1",
-    "Max",
-    1324171354,
-    3287263
-  ),
-  createData(
-    "1",
-
-    1324171354,
-    3287263,
-    "1",
-    "Max",
-    1324171354,
-    3287263
-  ),
-  createData(
-    "1",
-
-    1324171354,
-    3287263,
-    "1",
-    "Max",
-    1324171354,
-    3287263
-  ),
-  createData(
-    "1",
-
-    1324171354,
-    3287263,
-    "1",
-    "Max",
-    1324171354,
-    3287263
-  ),
-  createData(
-    "1",
-
-    1324171354,
-    3287263,
-    "1",
-    "Max",
-    1324171354,
-    3287263
-  )
+  createData("2", "Kid's Carnival ", "11-12-2019", "14-12-2019", 45),
+  createData("3", "Wine Visit with Sunday Lunch", "19-10-2019", "25-10-2019", 32)
 ];
 
 const columns = [
-  { id: "SiNo", label: "SI No.", minWidth: 30 },
+  { id: "SiNo", label: "SI No.", minWidth: 50 },
   { id: "name", label: "Name", minWidth: 100 },
-  { id: "StartDate", label: "Start Date", minWidth: 100 },
+  { id: "StartDate", label: "Start Date", minWidth: 80 },
   {
     id: "EndDate",
     label: "End Date",
-    minWidth: 100,
-    format: value => value.toLocaleString()
+    minWidth: 80
   },
-  {
-    id: "description",
-    label: "Description",
-    minWidth: 150,
-    format: value => value.toLocaleString()
-  },
-  {
-    id: "EventImage",
-    label: "Event Image",
-    minWidth: 100,
-    format: value => value.toFixed(2)
-  },
+
   {
     id: "actions",
     label: "Actions",
-    minWidth: 100,
+    minWidth: 80,
     format: () => (
       <div>
         <IconButton size="small" color="primary">
@@ -241,81 +108,11 @@ function Events() {
         aria-labelledby="form-dialog-title"
         className={classes.card}
       >
-        <DialogContent>
-          <TextField
-            id="standard-basic"
-            className={classes.textField}
-            label="Event Name"
-            margin="normal"
-          />
-
-          <TextField
-            id="standard-textarea"
-            label="Description"
-            multiline
-            margin="normal"
-            className={classes.textField}
-          />
-
-          <TextField
-            id="date"
-            type="date"
-            label="Event Start Date"
-            placeholder="DD-MM-YYYY"
-            margin="normal"
-            className={classes.textField}
-            InputLabelProps={{
-              shrink: true
-            }}
-          />
-
-          <FormControlLabel
-            className={classes.FormControlLabel}
-            control={
-              <Checkbox value={isOneDayEvent} onChange={() => setIsOneDayEvent(!isOneDayEvent)} />
-            }
-            label="One Day Event?"
-          />
-
-          {!isOneDayEvent && (
-            <TextField
-              id="date"
-              type="date"
-              label="Event End Date"
-              placeholder="DD-MM-YYYY"
-              margin="normal"
-              className={classes.textField}
-              InputLabelProps={{
-                shrink: true
-              }}
-            />
-          )}
-          <br />
-          <br />
-          <InputLabel className={classes.input}>
-            Upload Event Image
-            <Input capture="camcorder" className={classes.input} type="file" accept="image/*" />
-          </InputLabel>
-        </DialogContent>
-        <br />
-        <DialogActions>
-          <Button
-            onClick={handleClose}
-            variant="contained"
-            color="primary"
-            className={classes.button}
-          >
-            Cancel
-          </Button>
-          <Button
-            onClick={handleClose}
-            variant="contained"
-            color="primary"
-            className={classes.button}
-          >
-            Add
-          </Button>
-        </DialogActions>
+        <EventsForm
+          classes={classes}
+          isOneDayEvent={isOneDayEvent}
+          setIsOneDayEvent={setIsOneDayEvent}
+        />
       </Dialog>
     </div>
   );
@@ -332,11 +129,7 @@ const useStyles = makeStyles(theme =>
       maxWidth: 450,
       margin: "auto",
       transition: "0.3s",
-      height: "100%",
-      boxShadow: "0 8px 40px -12px rgba(0,0,255,0.3)",
-      "&:hover": {
-        boxShadow: "0 16px 70px -12.125px rgba(0,0,255,0.3)"
-      }
+      height: "100%"
     },
     input: {
       width: 300
