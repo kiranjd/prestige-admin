@@ -27,10 +27,6 @@ function createData(SiNo, name, SelectShop, Validity, description, actions) {
 const rows = [
   createData("1", "Max", "1", "Max", 1324171354, 99999, 999),
   createData("1", "Max", "1", "Max", 1324171354, 99999, 999),
-  createData("1", "Max", "1", "Max", 1324171354, 99999, 999),
-  createData("1", "Max", "1", "Max", 1324171354, 99999, 999),
-  createData("1", "Max", "1", "Max", 1324171354, 99999, 999),
-  createData("1", "Max", "1", "Max", 1324171354, 99999, 999),
   createData("1", "Max", "1", "Max", 1324171354, 99999, 999)
 ];
 
@@ -211,11 +207,7 @@ const useStyles = makeStyles(theme =>
       maxWidth: 455,
       margin: "auto",
       transition: "0.3s",
-      height: "100%",
-      boxShadow: "0 8px 40px -12px rgba(0,0,255,0.3)",
-      "&:hover": {
-        boxShadow: "0 16px 70px -12.125px rgba(0,0,255,0.3)"
-      }
+      height: "100%"
     },
     textField: {
       marginRight: theme.spacing(1),
