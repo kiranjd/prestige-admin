@@ -18,6 +18,7 @@ import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import { Edit, Delete } from "@material-ui/icons";
 import StickyHeadTable from "../components/Table";
+import TabelContentCard from "../components/TabelContentCard";
 import ShopForm from "../components/shopForm";
 
 function createData(SiNo, name, floor, category, size, description, shoplogo, shoppath, actions) {
@@ -35,10 +36,6 @@ function createData(SiNo, name, floor, category, size, description, shoplogo, sh
 }
 
 const rows = [
-  createData("1", "Max", "1", "Max", "1", "Max", 1324171354, 99999, 999),
-  createData("1", "Max", "1", "Max", "1", "Max", 1324171354, 99999, 999),
-  createData("1", "Max", "1", "Max", "1", "Max", 1324171354, 99999, 999),
-  createData("1", "Max", "1", "Max", "1", "Max", 1324171354, 99999, 999),
   createData("1", "Max", "1", "Max", "1", "Max", 1324171354, 99999, 999),
   createData("1", "Max", "1", "Max", "1", "Max", 1324171354, 99999, 999),
   createData("1", "Max", "1", "Max", "1", "Max", 1324171354, 99999, 999)
@@ -92,13 +89,20 @@ const columns = [
 
 function Shops() {
   const classes = useStyles();
-  const [isOneDayEvent, setIsOneDayEvent] = useState(false);
   const [open, setOpen] = React.useState(false);
+  const [openInfo, setOpenInfo] = React.useState(false);
+
   const handleClose = () => {
     setOpen(false);
   };
   const handleClickOpen = () => {
     setOpen(true);
+  };
+  const handleCloseInfo = () => {
+    setOpenInfo(false);
+  };
+  const handleClickOpenInfo = () => {
+    setOpenInfo(true);
   };
 
   const handleChange = () => {};
@@ -124,6 +128,7 @@ function Shops() {
           <StickyHeadTable rows={rows} columns={columns} />
         </Grid>
       </Grid>
+
       <Dialog
         open={open}
         onClose={handleClose}
@@ -131,6 +136,10 @@ function Shops() {
         className={classes.card}
       >
         <ShopForm classes={classes} handleClose={handleClose}  handleChange={handleChange}/>
+      </Dialog>
+
+      <Dialog open={openInfo} onClose={handleCloseInfo} aria-labelledby="form-dialog-title">
+        <TabelContentCard />
       </Dialog>
     </div>
   );
@@ -152,11 +161,7 @@ const useStyles = makeStyles(theme =>
       maxWidth: 450,
       margin: "auto",
       transition: "0.3s",
-      height: "100%",
-      boxShadow: "0 8px 40px -12px rgba(0,0,255,0.3)",
-      "&:hover": {
-        boxShadow: "0 16px 70px -12.125px rgba(0,0,255,0.3)"
-      }
+      height: "100%"
     },
     input: {
       marginRight: theme.spacing(1),

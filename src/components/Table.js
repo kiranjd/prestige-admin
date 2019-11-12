@@ -14,8 +14,7 @@ const useStyles = makeStyles({
     width: "100%"
   },
   tableWrapper: {
-    maxHeight: 440,
-    overflow: "auto"
+    // overflow: "auto"
   }
 });
 
@@ -34,7 +33,7 @@ export default function StickyHeadTable({ columns, rows }) {
   };
 
   return (
-    <Paper className={classes.root}>
+    <Paper>
       <div className={classes.tableWrapper}>
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
